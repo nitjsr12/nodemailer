@@ -234,6 +234,21 @@
                                         display: block;
                                         padding-bottom: 5px;
                                     }
+
+
+
+                                }
+
+                                @media only screen and (max-width: 600px) {
+                                    .testbox {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        height: inherit;
+                                        padding: 20px;
+                                        position: absolute;
+                                        top: -218px;
+                                    }
                                 }
                             </style>
                         </head>
@@ -339,7 +354,7 @@
                                             alert('Success:', data);
                                         })
                                         .catch((error) => {
-                                           alert('Error:', error);
+                                            alert('Error:', error);
                                         });
                                 }
                             </script>
