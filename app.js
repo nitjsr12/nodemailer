@@ -1,8 +1,10 @@
+var nodemailer = require('nodemailer');
 const express = require('express');
 const app = express();
 const path = require('path');
 const router = express.Router();
-
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
 router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
     //__dirname : It will resolve to your project folder.
@@ -11,8 +13,31 @@ router.get('/', function (req, res) {
 router.post('/mail', function (req, res) {
     // res.sendFile(path.join(__dirname + '/about.html'));
     console.log('requensting body...', req.body);
-    console.log('requensting p...', req.params);
-    console.log('requensting q...', req.query);
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'analtix12@gmail.com',
+            pass: 'Halo123@06'
+        }
+    });
+
+    let mailOptions = {
+        from: 'analtix12@gmail.com',
+        to: 'rsmca06@gmail.com',
+        subject: 'Sending Email using Node.js',
+        text: 'That was easy!' + JSON.stringify(req.body)
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+
+
     res.json({ message: 'email ssend successfullly' });
 });
 router.get('/about', function (req, res) {

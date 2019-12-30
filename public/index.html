@@ -240,7 +240,7 @@
 
                         <body>
                             <div class="testbox">
-                                <form action="/mail" method="POST" onsubmit={handleSubmit()}>
+                                <form action="/mail" method="POST" onsubmit={handleSubmit(e)}>
                                     <!-- action="/mail" -->
                                     <div class="banner">
                                         <h1>Check Eligibility</h1>
@@ -306,9 +306,10 @@
                                 </form>
                             </div>
                             <script>
-                                function handleSubmit() {
+                                function handleSubmit(e) {
                                     // alert('hi there');
                                     // fetch()
+                                    e.preventDefault();
                                     let fname = document.getElementById('name').value;
                                     let lname = document.getElementById('name1').value;
                                     let email = document.getElementById('email').value;
