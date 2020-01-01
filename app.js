@@ -55,6 +55,6 @@ app.use(express.static(__dirname + '/Script'));
 //Store all JS and CSS in Scripts folder.
 
 app.use('/', router);
-app.listen(process.env.port || 80);
+app.listen(process.env.port || 3000);
 
-console.log('Running at Port http://localhost:80/');
+console.log('Running at Port http://localhost:3000/');
