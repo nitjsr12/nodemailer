@@ -39,7 +39,7 @@ function handleSubmit(e) {
     console.log('data , ', otherFieldDiv)
     console.log('data , ', otherField)
     const data = { name, name1, email, mobile, pan, seeAnotherField, otherFieldDiv, otherField };
-    fetch('http://localhost:80/mail', {
+    fetch('http://localhost:3000/mail', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
